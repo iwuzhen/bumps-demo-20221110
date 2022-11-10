@@ -235,7 +235,7 @@ let source = [
   ['BQ', 226, 159, 161, 166, 172, 176, 176, 178, 179, 180, 180, 181, 181, 181, 181]
 ]
 
-let originData = source.slice(1).map(items=>{
+let data = source.slice(1).map(items=>{
   return {
     id: items[0],
     data: items.slice(1).map((subItem,index)=>{
@@ -246,7 +246,6 @@ let originData = source.slice(1).map(items=>{
     })
   }
 })
-let data = originData
 
 const selectOpt = source[0].slice(1).map(item=>{
   return {
@@ -262,13 +261,21 @@ function App() {
     console.log(round,selectOpt)
   })
   const changeDataLimit = (val)=>{
-    console.log("val", val.value)
     setRound(val)
-    data = originData.map(items=>{
+    data = source.slice(1).map(items=>{
+      return {
+        id: items[0],
+        data: items.slice(1).map((subItem,index)=>{
+          return {
+            x: index*2,
+            y: subItem
+          }
+        })
+      }
+    }).map(items=>{
       items.data = items.data.filter(node=>node.x<=val.value)
       return items
     })
-    console.log(data)
   }
   return (
       <>
