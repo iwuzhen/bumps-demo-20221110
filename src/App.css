@@ -1,0 +1,11 @@
+#root {
+  max-width: 100xw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bumps {
+  height: 5000px;
+  width: 1000px;
+}
