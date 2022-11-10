@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import { ResponsiveBump } from '@nivo/bump'
+import { useEffect } from 'react';
+
+import Select from 'react-select'
 
 let source = [
   ['Country', 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
@@ -232,7 +235,7 @@ let source = [
   ['BQ', 226, 159, 161, 166, 172, 176, 176, 178, 179, 180, 180, 181, 181, 181, 181]
 ]
 
-const data = source.slice(1).map(items=>{
+let originData = source.slice(1).map(items=>{
   return {
     id: items[0],
     data: items.slice(1).map((subItem,index)=>{
@@ -243,63 +246,96 @@ const data = source.slice(1).map(items=>{
     })
   }
 })
+let data = originData
+
+const selectOpt = source[0].slice(1).map(item=>{
+  return {
+    value: item,
+    label: item
+  }
+})
 
 function App() {
+  const [round, setRound] = useState(selectOpt.slice(-1)[0])
+  console.log("round", round, selectOpt.slice(-1)[0])
+  useEffect(()=>{
+    console.log(round,selectOpt)
+  })
+  const changeDataLimit = (val)=>{
+    console.log("val", val.value)
+    setRound(val)
+    data = originData.map(items=>{
+      items.data = items.data.filter(node=>node.x<=val.value)
+      return items
+    })
+    console.log(data)
+  }
   return (
-      <div className="bumps">    
-        <ResponsiveBump
-        data={data}
-        yOuterPadding={0.4}
-        colors={{ scheme: 'set3' }}
-        lineWidth={4}
-        activeLineWidth={5}
-        inactiveLineWidth={4}
-        opacity={0.7}
-        enableGridY={false}
-        enableGridX={false}
-        inactiveOpacity={0.15}
-        startLabel={true}
-        startLabelPadding={40}
-        startLabelTextColor={{ theme: 'labels.text.fill' }}
-        endLabelPadding={14}
-        endLabelTextColor={{ theme: 'labels.text.fill' }}
-        pointSize={11}
-        activePointSize={16}
-        inactivePointSize={0}
-        pointColor={{ from: 'serie.color', modifiers: [] }}
-        pointBorderWidth={3}
-        activePointBorderWidth={3}
-        pointBorderColor={{ from: 'serie.color' }}
-        axisTop={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: '',
-            legendPosition: 'middle',
-            legendOffset: -36
-        }}
-        axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: '',
-            legendPosition: 'middle',
-            legendOffset: 32
-        }}
-        axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'ranking',
-            legendPosition: 'middle',
-            legendOffset: -40
-        }}
-        animate={false}
-        margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
-        axisRight={null}
-    />
-    </div>
-
+      <>
+      <div style={{display: "flex"}}> 
+        <p>Round:</p> 
+        <Select 
+          options={selectOpt}
+          defaultValue={round}
+          className ="select"
+          onChange={changeDataLimit}
+          placeholder="选择最大等级"
+        /></div>
+        
+        <div className="bumps">
+          <ResponsiveBump
+            data={data}
+            yOuterPadding={0.4}
+            colors={{ scheme: 'set3' }}
+            lineWidth={4}
+            activeLineWidth={5}
+            inactiveLineWidth={4}
+            opacity={0.7}
+            enableGridY={false}
+            enableGridX={false}
+            inactiveOpacity={0.15}
+            startLabel={true}
+            startLabelPadding={40}
+            startLabelTextColor={{ theme: 'labels.text.fill' }}
+            endLabelPadding={14}
+            endLabelTextColor={{ theme: 'labels.text.fill' }}
+            pointSize={11}
+            activePointSize={16}
+            inactivePointSize={0}
+            pointColor={{ from: 'serie.color', modifiers: [] }}
+            pointBorderWidth={3}
+            activePointBorderWidth={3}
+            pointBorderColor={{ from: 'serie.color' }}
+            axisTop={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: '',
+                legendPosition: 'middle',
+                legendOffset: -36
+            }}
+            axisBottom={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: '',
+                legendPosition: 'middle',
+                legendOffset: 32
+            }}
+            axisLeft={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'ranking',
+                legendPosition: 'middle',
+                legendOffset: -40
+            }}
+            animate={false}
+            margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
+            axisRight={null}
+        />
+        </div>
+      </>
   )
 }
 
