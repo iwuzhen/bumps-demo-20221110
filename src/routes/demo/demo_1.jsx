@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './demo_1.css'
 import { ResponsiveBump } from '@nivo/bump'
 import { useEffect } from 'react';
 
