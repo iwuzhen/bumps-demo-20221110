@@ -5311,14 +5311,15 @@ const processData = (sourceData)=>{
   }
   maxYear = Math.max(...yearArray)
   minYear = Math.min(...yearArray)
-  let yearRange = (maxYear - minYear +2)/2
-  console.log(yearRange)
+  let yearRange = (maxYear - minYear)/2 + 1
+  console.log('yearRange',yearRange)
   for (let row of sourceData){
     if (countryMap.has(row[1])){
-      countryMap.get(row[1])[(maxYear-row[0])/2] = row[2]
+      countryMap.get(row[1])[(row[0]-minYear)/2] = row[2]
     }else{
-      countryMap.set(row[1],new Array(yearRange))
-      countryMap.get(row[1])[(maxYear-row[0])/2] = row[2]
+      let arrayData = new Array(yearRange)
+      arrayData[(row[0]-minYear)/2] = row[2]
+      countryMap.set(row[1],arrayData)
     }
   }
   yearArray.unshift('Country')
@@ -5327,6 +5328,7 @@ const processData = (sourceData)=>{
     item.unshift(key)
     retData.push(item)
   })
+  console.log(retData)
   return retData
 }
 
