@@ -10909,7 +10909,7 @@ const processData = (sourceData)=>{
   maxYear = Math.max(...yearArray)
   minYear = Math.min(...yearArray)
   let yearRange = (maxYear - minYear)/2 + 1
-  console.log('yearRange',yearRange)
+  // console.log('yearRange',yearRange)
   for (let row of sourceData){
     if (countryMap.has(row[1])){
       countryMap.get(row[1])[(row[0]-minYear)/2] = row[2]
@@ -10925,7 +10925,7 @@ const processData = (sourceData)=>{
     item.unshift(key)
     retData.push(item)
   })
-  console.log(retData)
+  // console.log(retData)
   return retData
 }
 
@@ -11041,7 +11041,7 @@ function App() {
           placeholder="选择最大等级"
         /></div>
         
-        <div className="bumps" style={bumpsHeightStyle}>
+        <div className="bumps">
           <ResponsiveBump
             data={data}
             xOuterPadding={0}
