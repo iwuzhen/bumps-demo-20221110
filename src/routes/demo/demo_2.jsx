@@ -11041,7 +11041,7 @@ function App() {
           placeholder="选择最大等级"
         /></div>
         
-        <div className="bumps">
+        <div className="bumps" style={bumpsHeightStyle}>
           <ResponsiveBump
             data={data}
             xOuterPadding={0}
