@@ -10968,10 +10968,7 @@ function initColor(){
     format: 'rgbaString',
     alpha: 0.15
   }).reverse()
-  colors[22] = "#1608D4"
-  colors[19] = "#9708D4"
-  colors[27] = "#D40816"
-  console.log(colors)
+
 
   let countryEmphasize = ['南非','韩国','中国','新加坡','西班牙','波兰','伊朗','瑞典', '土耳其',"中国台湾","丹麦","俄罗斯"]
   let indexEmphasize = []
@@ -10986,14 +10983,10 @@ function initColor(){
     // colors[index] = colors[index].replace(/[^,]+(?=\))/, 1);
     colors[index] = emphasizeColor[i]
   }
-  // console.log(indexEmphasize)
-  // console.log(colors)
 }
 
 initColor()
 
-
-// console.log("data",data)
 
 const selectOpt = [{
   value: 0,
@@ -11013,13 +11006,10 @@ const selectOpt = [{
 }]
 
 // `height: ${40/data.length}rem;`
-let bumpsHeightStyle = {
-  height: `${data.length}rem`,
-  color: "red",
-}
 
 function App() {
   const [round, setRound] = useState(selectOpt[defaultIndex])
+  const [height, setHeight] = useState(data.length)
   // console.log("round", round, selectOpt.slice(-1)[0])
   useEffect(()=>{
     console.log(round,selectOpt)
@@ -11028,6 +11018,7 @@ function App() {
     setRound(val)
     initColor()
     data = handleData(sourceArray[val.value])
+    setHeight(data.length)
   }
   return (
       <>
@@ -11041,7 +11032,7 @@ function App() {
           placeholder="选择最大等级"
         /></div>
         
-        <div className="bumps" style={bumpsHeightStyle}>
+        <div className="bumps" style={{height: `${height}rem`,}}>
           <ResponsiveBump
             data={data}
             xOuterPadding={0}
