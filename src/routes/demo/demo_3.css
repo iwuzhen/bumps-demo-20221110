@@ -16,3 +16,8 @@
   margin-left: 20px;
   width: 300px;
 }
+
+text {
+  white-space: pre;
+  font-family: monospace !important;
+}
