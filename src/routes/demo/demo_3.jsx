@@ -130,7 +130,7 @@ function App() {
             startLabel={true}
             startLabelPadding={40}
             startLabelTextColor={{ theme: 'labels.text.fill' }}
-            endLabel={obj=> `${String(obj.data.slice(-1)[0].y).padEnd(4, ' ')}     ${obj.id}`}
+            endLabel={obj=> `${String(obj.data.slice(-1)[0].y).padEnd(4, ' ')}  ${obj.id}`}
             endLabelPadding={14}
             endLabelTextColor={{ theme: 'labels.text.fill' }}
             pointSize={6}
@@ -165,7 +165,7 @@ function App() {
                 legendOffset: -40
             }}
             animate={false}
-            margin={{ top: 40, right: 140, bottom: 40, left: 140 }}
+            margin={{ top: 40, right: 200, bottom: 40, left: 200 }}
             axisRight={null}
         />
         </div>

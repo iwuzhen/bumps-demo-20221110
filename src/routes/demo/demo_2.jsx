@@ -11049,7 +11049,7 @@ function App() {
             startLabel={true}
             startLabelPadding={40}
             startLabelTextColor={{ theme: 'labels.text.fill' }}
-            endLabel={obj=> `${String(obj.data.slice(-1)[0].y).padEnd(4, ' ')}    ${obj.id}`}
+            endLabel={obj=> `${String(obj.data.slice(-1)[0].y).padEnd(4, ' ')}  ${obj.id}`}
             endLabelPadding={14}
             endLabelTextColor={{ theme: 'labels.text.fill' }}
             pointSize={6}
