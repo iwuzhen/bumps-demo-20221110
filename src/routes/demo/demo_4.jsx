@@ -10942,7 +10942,7 @@ const selectOpt = [{
   label: "阈值: 10, 学科linksin阈值: 1000"
 },{
   value: 2,
-  label: "阈值: 10, 学科linksin阈值: 1000"
+  label: "阈值: 10, 学科linksin阈值: 10000"
 }]
 
 // `height: ${40/data.length}rem;`
