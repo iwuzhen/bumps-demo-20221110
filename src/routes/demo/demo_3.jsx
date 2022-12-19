@@ -113,6 +113,13 @@ function App() {
           placeholder="选择最大等级"
         /></div>
         
+      <p style={{textAlign:"left"}}>
+      HS4 (referring to Harmonized System Product Classification at the 4-digit level).<br/>
+HS6 (referring to Harmonized System Product Classification at the 6-digit level).<br/>
+这里部署的都是HS6<br/>
+
+Datasets are the fundamental data structure used by the OEC API. A dataset contains all data related to a particular topic from a particular source. For instance: you will see multiple datasets for international trade because we have a variety of different product classifications: SITC (Standard International Trade Classification), HS (Harmonized System) as well as different revisions like HS92 (1992 revision of the Harmonized System), HS96 (1996 revision of the Harmonized System) and so on.
+      </p>
         <div className="bumps" style={{height: `${height}rem`,}}>
           <ResponsiveBump
             data={data}
