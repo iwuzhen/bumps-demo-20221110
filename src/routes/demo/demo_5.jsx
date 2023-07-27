@@ -85,6 +85,7 @@ function App() {
   const changeDataLimit = (val)=>{
     setRound(val)
     data = handleData(sourceArray[val.value])
+    console.log("data",data)
     setColors(initColor(data.length))
     setHeight(data.length)
   }
@@ -101,7 +102,7 @@ function App() {
         /></div>
         
       <p style={{textAlign:"left"}}>
-      ICP Level 3 复杂度， 产品总数为 4485
+      IPC Level 3 复杂度， 产品总数为 4485
             </p>
         <div className="bumps" style={{height: `${height}rem`,}}>
           <ResponsiveBump
