@@ -13,6 +13,7 @@ import Demo2 from "./routes/demo/demo_2";
 import Demo3 from "./routes/demo/demo_3";
 import Demo4 from "./routes/demo/demo_4";
 import Demo5 from "./routes/demo/demo_5";
+import Demo6 from "./routes/demo/demo_6";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/demo/demo-5",
     element: <Demo5 />,
+  },
+  {
+    path: "/demo/demo-6",
+    element: <Demo6 />,
   }
 ]);
 
