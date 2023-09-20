@@ -9,6 +9,10 @@ export default function Root() {
           <button style={{marginRight:'20px'}}><a href="/demo/demo-5">专利国家复杂度</a></button>
           <button style={{marginRight:'20px'}}><a href="/demo/demo-6">专利国家复杂度-20230816 修正</a></button>
           {/* <button style={{marginRight:'20px'}}><a href="/demo/demo-3">世界知识复杂度排名+中美湾区</a></button> */}
+          
+          <h1>page view</h1>
+          <button style={{marginRight:'20px'}}><a href="/page/paper">知识复杂度(论文)</a></button>
+          <button style={{marginRight:'20px'}}><a href="/page/patent">知识复杂度(专利)</a></button>
       </>
     );
   }

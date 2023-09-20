@@ -14,6 +14,10 @@ import Demo3 from "./routes/demo/demo_3";
 import Demo4 from "./routes/demo/demo_4";
 import Demo5 from "./routes/demo/demo_5";
 import Demo6 from "./routes/demo/demo_6";
+
+
+import PagePaper from "./routes/page/paper";
+import PagePatent from "./routes/page/patent";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +46,16 @@ const router = createBrowserRouter([
   {
     path: "/demo/demo-6",
     element: <Demo6 />,
+  },
+  {
+    path: "/page/paper",
+    element: <PagePaper />,
+  },
+  {
+    path: "/page/patent",
+    element: <PagePatent />,
   }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

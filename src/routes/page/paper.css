@@ -1,0 +1,27 @@
+
+#root {
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bumps {
+  /* height: 40rem; */
+  width: 70rem;
+}
+
+
+.select {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.numbers {
+  font-family: Tahoma;
+ }
+ 
+text {
+  white-space: pre;
+  font-family: monospace !important;
+}
