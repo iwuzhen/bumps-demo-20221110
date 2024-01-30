@@ -18,6 +18,7 @@ import Demo6 from "./routes/demo/demo_6";
 
 import PagePaper from "./routes/page/paper";
 import PagePatent from "./routes/page/patent";
+import PageGithubEci from "./routes/page/github-eci";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/page/patent",
     element: <PagePatent />,
+  },
+  {
+    path: "/page/github-eci",
+    element: <PageGithubEci />,
   }
   
 ]);

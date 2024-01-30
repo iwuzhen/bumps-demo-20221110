@@ -13,6 +13,7 @@ export default function Root() {
           <h1>page view</h1>
           <button style={{marginRight:'20px'}}><a href="/page/paper">知识复杂度(论文)</a></button>
           <button style={{marginRight:'20px'}}><a href="/page/patent">知识复杂度(专利)</a></button>
+          <button style={{marginRight:'20px'}}><a href="/page/github-eci">知识复杂度(github)</a></button>
       </>
     );
   }
