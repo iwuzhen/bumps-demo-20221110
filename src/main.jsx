@@ -14,6 +14,7 @@ import Demo3 from "./routes/demo/demo_3";
 import Demo4 from "./routes/demo/demo_4";
 import Demo5 from "./routes/demo/demo_5";
 import Demo6 from "./routes/demo/demo_6";
+import Demo7 from "./routes/demo/demo_7";
 
 
 import PagePaper from "./routes/page/paper";
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/demo/demo-6",
     element: <Demo6 />,
+  },
+  {
+    path: "/demo/demo-7",
+    element: <Demo7 />,
   },
   {
     path: "/page/paper",
